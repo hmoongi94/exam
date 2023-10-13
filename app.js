@@ -19,6 +19,7 @@ const server = http.createServer(function(request,response){
         console.log('파일을 읽지 못했습니다.')
       } else {
         response.end(data)
+        // image파일이 안불러와짐
       }
     })
   }
