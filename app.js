@@ -5,6 +5,9 @@ const contentType = {
   'Content-Type': 'text/html',
   'charset': 'utf-8',
 }
+const contentimgType = {
+  'Content-Type' : 'image/apng',
+}
 
 
 const server = http.createServer(function(request,response){
@@ -14,6 +17,17 @@ const server = http.createServer(function(request,response){
   }
   
   if(request.url === "/hmoongi94"){
+    // console.log(request)
+
+    // response.writeHead(200, contentimgType);
+    // fs.readFile("./static/image/디그다.png", function(err,data){
+    //   if(err){
+    //     console.log('이미지 파일을 읽지 못했습니다.')
+    //   } else{
+    //     response.end(data)
+    //   }
+    // })
+
     response.writeHead(200, contentType);
     fs.readFile("./static/index.html", "utf-8", function(err, data){
       if(err){
