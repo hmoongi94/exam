@@ -1,10 +1,8 @@
 const http = require("http")
 const fs = require("fs");
-const { request } = require("http");
 
 const contentType = {
-  'Content-Type': 'text/html',
-  'charset': 'utf-8',
+  "Content-Type": "text/html",
 }
 
 const contentimgType = {
@@ -22,7 +20,7 @@ const server = http.createServer(function(request,response){
     throw new Error("해당서버는 get요청처리만 가능하게끔 만들어졌습니다.")
   }
   
-  if(request.url === "/hmoongi94"){
+  else if(request.url === "/hmoongi94"){
     fs.readFile("./static/index.html", "utf-8", function(err, data){
       if(err){
         console.log('파일을 읽지 못했습니다.')
@@ -36,18 +34,18 @@ const server = http.createServer(function(request,response){
 
 
 
-if(request.url === "/hmoongi94image"){
-  fs.readFile("./static/image/두더지게임배경.jpg", function(err,data){
-    if(err){
+  else if(request.url === "/hmoongi94image"){
+    fs.readFile("./static/image/두더지게임배경.jpg", function(err,data){
+      if(err){
       console.log("두더지게임배경화면을 불러오지 못했습니다.")
-    } else{
+      } else{
       response.writeHead(200, contentimgType)
       response.end(data)
       }
     })
   }
 
-  if(request.url === "/hmoongi94image2"){
+  else if(request.url === "/hmoongi94image2"){
     fs.readFile("./static/image/디그다.png", function(err,data){
       if(err){
         console.log("디그다사진을 불러오지 못했습니다.")
@@ -58,7 +56,7 @@ if(request.url === "/hmoongi94image"){
     })
   }
 
-  if(request.url === "/hmoongi94image3"){
+  else if(request.url === "/hmoongi94image3"){
     fs.readFile("./static/image/뿅망치.png",function(err,data){
       if(err){
         console.log("뿅망치사진을 불러오지 못했습니다.")
