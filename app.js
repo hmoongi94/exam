@@ -73,6 +73,15 @@ const server = http.createServer(function(request,response){
   }
 
 })
+    //try catch finally -> else if 안썼을 경우, 
+    // try {
+    //   nonExistentFunction();
+    // } catch (error) {
+    //   console.error(error);
+    //   // Expected output: ReferenceError: nonExistentFunction is not defined
+    //   // (Note: the exact output may be browser-dependent)
+    // }
+
 
 
 server.listen(8080,function(){
