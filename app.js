@@ -14,7 +14,7 @@ const server = http.createServer(function(request,response){
   
   if(request.url === "/hmoongi94"){
     response.writeHead(200, contentType);
-    fs.readFile("./index.html", "utf-8", function(err, data){
+    fs.readFile("./static/index.html", "utf-8", function(err, data){
       if(err){
         console.log('파일을 읽지 못했습니다.')
       } else {
@@ -31,5 +31,5 @@ const server = http.createServer(function(request,response){
 })
 
 server.listen(8080,function(){
-  console.log('localhost:8080/hmoongi94 서버가 가동중입니다. 끄려면 Ctrl+C를 누르세요.')
+  console.log('http://localhost:8080/hmoongi94 서버가 가동중입니다. 끄려면 Ctrl+C를 누르세요.')
 })
