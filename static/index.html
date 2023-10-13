@@ -10,6 +10,10 @@
       padding: 0;
       box-sizing: border-box;
     }
+    ul{
+      cursor: url(image/뿅망치.jpg) 4 12,
+      auto;
+    }
     li {
       list-style: none;
     }
@@ -77,6 +81,21 @@
     #scorehow{
       flex-direction: column;
     }
+
+    p {
+      animation-name: slidein;
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+    }
+    @keyframes slidein {
+      from{
+        height: 0%;
+      }
+      
+      to{
+        height:70%;
+      }
+    }
     
   </style>
 </head>
@@ -115,6 +134,7 @@
   </div>
 
   <script>
+  
     div = document.getElementsByTagName("div")
     // console.log(div)
     makeP = document.createElement("p")
