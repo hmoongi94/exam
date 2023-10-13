@@ -1,10 +1,11 @@
 const http = require("http")
-const fs = require("fs")
+const fs = require("fs");
 
 const contentType = {
   'Content-Type': 'text/html',
   'charset': 'utf-8',
 }
+
 
 const server = http.createServer(function(request,response){
 
