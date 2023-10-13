@@ -129,6 +129,9 @@
     button = document.getElementsByTagName("button")
     ul = document.getElementsByTagName("ul")
     li = document.getElementsByTagName("li")
+    scorehow = document.getElementById("scorehow")
+    timehow = document.getElementById("timehow")
+
 
     // random = Math.floor(Math.random()*8-0 + 0)
     // console.log(random)
@@ -139,8 +142,8 @@
       // => 0~7까지 나옴
       
       li[random].appendChild(makeP)
-      p[0].style.width = "100%"
-      p[0].style.height = "100%"
+      p[0].style.width = "50%"
+      p[0].style.height = "50%"
       p[0].style.backgroundColor = "red"
       // p[0].style.backgroundImage = ""
     }
@@ -151,10 +154,10 @@
     li[i].addEventListener("click",function(event){
       if(event.target === p[0]){
         console.log(event)
-        score++;
         p[0].remove()
         makeTarget()
-        scorehow.texContent += score;
+        score++;
+        scorehow.textContent = "score:" + score;
       }
     })
   }
