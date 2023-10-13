@@ -11,9 +11,16 @@ const server = http.createServer(function(request,response){
   if(request.method !== "GET"){
     throw new Error("해당서버는 get요청처리만 가능하게끔 만들어졌습니다.")
   }
+  
   if(request.url === "/hmoongi94"){
     response.writeHead(200, contentType);
-    response.end();
+    fs.readFile("./index.html", "utf-8", function(err, data){
+      if(err){
+        console.log('파일을 읽지 못했습니다.')
+      } else {
+        response.end(data)
+      }
+    })
   }
   
   else{
