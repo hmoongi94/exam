@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    li {
+      list-style: none;
+    }
+    body{
+      overflow-x: hidden;
+      display: flex;
+    }
+    #root {
+      width: 80vw;
+      height: 100vh;
+      background-color: #ccc;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    #root2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: center;
+    }
+    #root2 div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 32px;
+    }
+
+    ul li {
+      width: 25vw;
+      height: 30vh;
+      margin-right: 6px;
+      outline: 1px solid black;
+      background-color: #fff;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #clickDiv{
+      background-color: aqua;
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+      top:0;
+      left: 0;
+      z-index: 10;
+    }
+    div {
+      outline: 1px solid black;
+      width: 19vw;
+      height: 100vh;
+      background-color: blanchedalmond;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <ul id="root">
+    <li id="area1">
+      <div id="clickDiv"></div>
+    </li>
+    <li id="area2"></li>
+    <li id="area3"></li>
+    <li id="area4"></li>
+    <li id="area5"></li>
+    <li id="area6"></li>
+    <li id="area7"></li>
+    <li id="area8"></li>
+    <li id="area9"></li>
+  </ul>
+  <div id="root2">
+    <div id="timehow">time</div>
+    <div id="scorehow">score</div>
+  </div>
+
+</body>
+</html>
