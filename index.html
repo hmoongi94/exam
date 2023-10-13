@@ -170,7 +170,11 @@
       limittime(30)
       makeTarget()
       }
-      
+      if(button[0].textContent === "stop!"){
+        p[0].remove()
+        clearInterval(setting)
+        timehow.textContent = "time: 30초"
+      }      
     })
 
     function limittime(num) { 
