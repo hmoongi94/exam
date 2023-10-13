@@ -149,6 +149,7 @@
     }
 
     let score = 0;
+    let setting
 
     for(i=0; i<li.length; i++){
     li[i].addEventListener("click",function(event){
@@ -171,16 +172,18 @@
       limittime(30)
       makeTarget()
       }
-      if(button[0].textContent === "stop!"){
+      else if(button[0].textContent === "stop!"){
         button[0].textContent = "start!"
         p[0].remove()
-        clearInterval(setting)
         timehow.textContent = "time: 30초"
+        scorehow.textContent = "score:"
+        score = 0 
+        clearInterval(setting)
       }      
     })
 
     function limittime(num) { 
-      let setting = setInterval(function() {
+      setting = setInterval(function() {
       // 초당 1씩 감소
       num--;
       // 감소된 시간을 입력
