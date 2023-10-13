@@ -67,6 +67,16 @@
       height: 100vh;
       background-color: blanchedalmond;
     }
+
+    button {
+      width: 10vw;
+      height: 10vh;
+      margin-top: 20vw;
+    }
+    
+    #scorehow{
+      flex-direction: column;
+    }
     
   </style>
 </head>
@@ -86,8 +96,52 @@
   </ul>
   <div id="root2">
     <div id="timehow">time</div>
-    <div id="scorehow">score</div>
+    <div id="scorehow">
+      score
+      <button>start!</button>
+    </div>
+    
   </div>
+
+  <script>
+    div = document.getElementsByTagName("div")
+    // console.log(div)
+    makeP = document.createElement("p")
+    p = document.getElementsByTagName("p")
+    button = document.getElementsByTagName("button")
+    ul = document.getElementsByTagName("ul")
+    li = document.getElementsByTagName("li")
+
+    // random = Math.floor(Math.random()*8-0 + 0)
+    // console.log(random)
+
+    makeTarget = function(random){
+      random = Math.floor(Math.random()*9-0 + 0)
+      // random = Math.floor(Math.random()*8-0 + 0)
+      // => 0~7까지 나옴
+      
+      li[random].appendChild(makeP)
+      p[0].style.width = "30px"
+      p[0].style.height = "30px"
+      p[0].style.backgroundColor = "red"
+      // p[0].style.backgroundImage = ""
+    }
+
+    for(i=0; i<li.length; i++){
+    li[i].addEventListener("click",function(event){
+      if(event.target === p[0]){
+        console.log(event)
+        p[0].remove()
+        makeTarget()
+      }
+    })
+  }
+
+    button[0].addEventListener("click",function(){
+      makeTarget()
+    })
+
+  </script>
 
 </body>
 </html>
