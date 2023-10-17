@@ -56,16 +56,16 @@ const server = http.createServer(function(request,response){
     })
   }
 
-  else if(request.url === "/hmoongi94image3"){
-    fs.readFile("./static/image/뿅망치.png",function(err,data){
-      if(err){
-        console.log("뿅망치사진을 불러오지 못했습니다.")
-      } else{
-        response.writeHead(200, contentimgType2)
-        response.end(data)
-      }
-    })
-  }
+  // else if(request.url === "/hmoongi94image3"){
+  //   fs.readFile("./static/image/뿅망치.png",function(err,data){
+  //     if(err){
+  //       console.log("뿅망치사진을 불러오지 못했습니다.")
+  //     } else{
+  //       response.writeHead(200, contentimgType2)
+  //       response.end(data)
+  //     }
+  //   })
+  // }
 
   else {
     response.writeHead(404, contentType);

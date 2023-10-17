@@ -152,13 +152,14 @@
     gamewindow.style.backgroundSize = "105%"
 
 
-    // random = Math.floor(Math.random()*8-0 + 0)
+    // random = Math.floor(Math.random()*16-0 + 0)
     // console.log(random)
+    
 
     makeTarget = function(random){
-      random = Math.floor(Math.random()*9-0 + 0)
-      // random = Math.floor(Math.random()*8-0 + 0)
-      // => 0~7까지 나옴
+      random = Math.floor(Math.random()*16-0 + 0)
+      // random = Math.floor(Math.random()*16-0 + 0)
+      // => 0~15까지 나옴
       
       li[random].appendChild(makeP)
       p[0].style.width = "70%"
@@ -175,7 +176,7 @@
     for(i=0; i<li.length; i++){
     li[i].addEventListener("click",function(event){
       if(event.target === p[0]){
-        console.log(event)
+        // console.log(event)
         p[0].remove()
         makeTarget()
         score++;
