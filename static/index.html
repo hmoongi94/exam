@@ -122,7 +122,7 @@
     
   </ul>
   <div id="root2">
-    <div id="timehow">time: 30초</div>
+    <div id="timehow">time: 10초</div>
     <div id="scorehow">
       score:
     </div>
@@ -149,7 +149,8 @@
     
     gamewindow.style.backgroundImage = "url(http://localhost:8080/hmoongi94image)"
     console.dir(gamewindow)
-    gamewindow.style.backgroundSize = "105%"
+    gamewindow.style.backgroundSize = "100%"
+
 
 
     // random = Math.floor(Math.random()*16-0 + 0)
@@ -191,7 +192,8 @@
     button[0].addEventListener("click",function(){
       if(button[0].textContent === "start!"){
       button[0].textContent = "stop!"
-      limittime(30)
+      scorehow.textContent = "score:"
+      limittime(10)
       makeTarget()
       }
       else if(button[0].textContent === "stop!"){
@@ -215,6 +217,10 @@
         timehow.textContent = '종료!';
         // interval함수 종료
         clearInterval(setting);
+        score = 0
+        button[0].textContent = "start!"
+        // scorehow.textContent = "score:"
+        p[0].remove()
       };
       // 1초당 반복하여 texContent에 넣어줌
       }, 1000);
