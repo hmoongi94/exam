@@ -1,12 +1,14 @@
-import { openToggle } from "./opentoggle";
+// import { openToggle } from "./opentoggle";
 
 
 
+export const load = () => {
+  document.addEventListener("DOMContentLoaded", function () {
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const sidebarMenu = document.getElementById("sidebarMenu");
 
-export const load = 
-document.addEventListener("DOMContentLoaded", function () {
-  const sidebarToggle = document.getElementById("sidebarToggle");
-  const sidebarMenu = document.getElementById("sidebarMenu");
-
-  openToggle(sidebarToggle, sidebarMenu);
-});
+    sidebarToggle.addEventListener("click", async function () {
+      sidebarMenu.classList.toggle("close")
+    })
+  })
+}
