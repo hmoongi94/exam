@@ -27,11 +27,19 @@
       <!-- 대답창(appendchild로 태그 생성해서 json데이터의 값 받아서 입력, display:flex-> overflow:scroll?) -->
       <!-- 검색창(input post로 서버에 보내주기)  -->
       <main>
+        <!-- 대답창 -->
         <nav id="answer"></nav>
+
+        <!-- 검색창 -->
+        <!-- position fixed -->
         <nav id="question">
-          <input type="text" id="searchinput" placeholder="send a message" />
+          <form action="" method="POST">
+            <input type="text" id="searchContent" placeholder="send a message"/>
+            <input type="submit" id="searchSend" value="send" />
+          </form>
         </nav>
       </main>
+
     </div>
   </body>
 </html>
