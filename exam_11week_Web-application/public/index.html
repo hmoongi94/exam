@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <!-- 위에 메뉴(사이드바, gpt버전, sharchat) -->
-  <!-- position: sticky? fix? -->
-  <header>
-    <nav id="menu"></nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index-layout.css" />
+  </head>
+  <body>
+    <div id="root">
+      <!-- 위에 메뉴(사이드바, gpt버전, sharechat) -->
+      <!-- position: sticky? fix? -->
+      <header>
+        <nav id="menu">
+          <ul>
+            <!-- 사이드바 -->
+            <li>sidebar</li>
+            <!-- gpt버전 -->
+            <li>GPT-default-3.5</li>
+            <!-- sharechat -->
+            <li>sharechat</li>
+          </ul>
+        </nav>
+      </header>
 
-  <!-- 대답창(appendchild로 태그 생성해서 json데이터의 값 받아서 입력, display:flex-> overflow:scroll?) -->
-  <!-- 검색창(input post로 서버에 보내주기)  -->
-  <main>
-    <nav id="answerchat"></nav>
-    <nav id="questionchat"></nav>
-  </main>  
-</body>
+      <!-- 대답창(appendchild로 태그 생성해서 json데이터의 값 받아서 입력, display:flex-> overflow:scroll?) -->
+      <!-- 검색창(input post로 서버에 보내주기)  -->
+      <main>
+        <nav id="answer"></nav>
+        <nav id="question">
+          <input type="text" id="searchinput" placeholder="send a message" />
+        </nav>
+      </main>
+    </div>
+  </body>
 </html>
