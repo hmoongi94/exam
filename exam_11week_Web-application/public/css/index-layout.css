@@ -17,10 +17,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: sticky;
 }
 
-#menu>ul{
+#menuUl{
   width: 95vw;
   list-style:none;
   display: flex;
@@ -28,17 +28,40 @@
   align-items: center;
 }
 
-#menu>ul>li{
+#menuUl>li{
   float: left;
 }
 
-/* main{
-
+#answerChat{
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
 }
 
-#answer{
+#answerChat>ul{
+  list-style: none;
+}
 
-} */
+#answerChat>ul>li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#answerChat>ul>li:nth-child(odd){
+  background-color: aqua;
+}
+
+
+#answerChat>ul>li:nth-child(even){
+  background-color: aquamarine;
+}
+
+#answerChat>ul>li>p{
+  width: 50vw;
+}
+
 
 #question{
   width: 100vw;
@@ -46,8 +69,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  margin-top: 90vh;
+  position: sticky;
+  margin-top: 4vh;
 }
 
 #searchContent{
