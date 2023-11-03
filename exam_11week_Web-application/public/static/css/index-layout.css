@@ -20,6 +20,10 @@
   display: none;
 }
 
+.open{
+  display: block;
+}
+
 /* header */
 #menu{
   width: 100vw;
