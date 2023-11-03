@@ -10,6 +10,17 @@
   background-color: #40414f;
 }
 
+/* sidebar */
+#sidebarMenu{
+  width: 15vw;
+  height: 94vh;
+  background-color: #343541;
+  position: absolute;
+  margin-top: 6vh;
+  display: none;
+}
+
+/* header */
 #menu{
   width: 100vw;
   height: 6vh;
@@ -32,6 +43,8 @@
   float: left;
 }
 
+
+/* main */
 #answerChat{
   width: 100vw;
   height: 80vh;
