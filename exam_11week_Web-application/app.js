@@ -30,7 +30,7 @@ app.post('/submit', (req, res) => {
 
 
   // 다른 JSON 파일에서 데이터 읽기
-  let responseData = [];
+  let responseData = {};
   try {
       const answerDataPath = path.join(__dirname, './public/data/answerData.json')
       const answerFileData = fs.readFileSync(answerDataPath, 'utf8');
@@ -41,7 +41,7 @@ app.post('/submit', (req, res) => {
   }
 
   // 클라이언트에 응답
-  res.json({ message: `서버에서 받은 데이터: ${newData}, 서버에서 응답한 데이터: ${responseData}`});
+  res.json({ message: `서버에서 받은 데이터: ${newData}`, responseData: `서버에서 응답하는 데이터: ${responseData.yes}`});
 });
 
 
