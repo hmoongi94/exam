@@ -1,3 +1,5 @@
-// export const openToggle = function(clickTarget, callback){
-//   clickTarget.addEventListener("click",callback())
-// }
+export function addToggleClassOnClick(clickElemnt, targetElement, className) {
+  clickElemnt.addEventListener("click", function() {
+      targetElement.classList.toggle(className);
+  });
+}
