@@ -31,16 +31,18 @@ app.post('/submit', (req, res) => {
 
   // 다른 JSON 파일에서 데이터 읽기
   let responseData = {};
+  let responseMessage = ""
   try {
       const answerDataPath = path.join(__dirname, './public/data/answerData.json')
       const answerFileData = fs.readFileSync(answerDataPath, 'utf8');
       responseData = JSON.parse(answerFileData);
       // 응답에 조건걸어줘보기
-      let responseMessage = ""
-     if(typeof(newData)==="string"){
+     if(typeof(newData)==="1234"){
       responseMessage = responseData.yes
-     } else{
+     } else if(newData === "123"){
       responseMessage = responseData.no
+     } else{
+      responseMessage = responseData.yes
      }
       
   } catch (error) {
@@ -48,6 +50,7 @@ app.post('/submit', (req, res) => {
   }
 
   // 클라이언트에 응답
+  console.log(typeof(newData))
   res.json({ message: `서버에서 받은 데이터: ${newData}`, 
             responseData: `서버에서 응답하는 데이터: ${responseMessage}`});
 });
