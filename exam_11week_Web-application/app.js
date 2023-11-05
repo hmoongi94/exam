@@ -16,8 +16,8 @@ app.post('/submit', (req, res) => {
 
   // 기존 JSON 파일에서 데이터 읽기
   let existingData = [];
+  const questionDataPath = path.join(__dirname, './public/data/questionData.json')
   try {
-      const questionDataPath = path.join(__dirname, './public/data/questionData.json')
       const questionfileData = fs.readFileSync(questionDataPath, 'utf8');
       existingData = JSON.parse(questionfileData);
   } catch (error) {
@@ -26,7 +26,7 @@ app.post('/submit', (req, res) => {
   // 새 데이터를 배열에 추가
   existingData.push(newData);
   // JSON 파일에 데이터 쓰기
-  fs.writeFileSync('questionData.json', JSON.stringify(existingData), 'utf8');
+  fs.writeFileSync(questionDataPath, JSON.stringify(existingData), 'utf8');
 
 
   // 다른 JSON 파일에서 데이터 읽기
