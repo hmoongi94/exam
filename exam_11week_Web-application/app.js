@@ -34,14 +34,20 @@ app.post('/submit', (req, res) => {
   try {
       const answerDataPath = path.join(__dirname, './public/data/answerData.json')
       const answerFileData = fs.readFileSync(answerDataPath, 'utf8');
-      responseData = JSON.parse(answerFileData);
-      console.log(responseData)
+      // 응답에 조건걸어줘보기
+      if(typeof(newData)==="string"){
+        responseData = JSON.parse(answerFileData);
+      }
+      else{
+        responseData = JSON.parse(answerFileData)
+      }
   } catch (error) {
       console.error(error);
   }
 
   // 클라이언트에 응답
-  res.json({ message: `서버에서 받은 데이터: ${newData}`, responseData: `서버에서 응답하는 데이터: ${responseData.yes}`});
+  res.json({ message: `서버에서 받은 데이터: ${newData}`, 
+            responseData: `서버에서 응답하는 데이터: ${responseData.yes}`});
 });
 
 
