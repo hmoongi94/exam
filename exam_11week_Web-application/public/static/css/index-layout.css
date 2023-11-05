@@ -17,10 +17,11 @@
   background-color: #343541;
   position: absolute;
   margin-top: 6vh;
+  display: none;
 }
 
-.close{
-  display: none;
+.open{
+  display: block;
 }
 
 /* header */
