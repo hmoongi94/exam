@@ -6,7 +6,7 @@ export const load = () => {
     const sidebarmenu = document.getElementById("sidebarMenu");
 
     sidebartoggle.addEventListener("click",function(){
-      sidebarmenu.classList.toggle('open')
+      sidebarmenu.classList.toggle('close')
     })
 
     })
