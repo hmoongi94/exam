@@ -41,7 +41,8 @@ app.post('/submit', (req, res) => {
   }
 
   // 클라이언트에 응답
-  res.json({ message: `서버에서 받은 데이터: ${newData}`, responseData: `서버에서 응답하는 데이터: ${responseData.yes}`});
+  res.json({ message: `서버에서 받은 데이터: ${newData}`, 
+              responseData: `서버에서 응답하는 데이터: ${responseData.yes}`});
 });
 
 
