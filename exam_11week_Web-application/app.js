@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const fs = require('fs')
 const port = 5001;
 
 // 정적파일 제공을 위한 미들웨어 설정
@@ -14,30 +15,33 @@ app.post('/submit', (req, res) => {
   const newData = req.body.data; // 클라이언트에서 보낸 데이터
 
   // 기존 JSON 파일에서 데이터 읽기
-  let existingData = {};
+  let existingData = [];
   try {
-      const questionfileData = fs.readFileSync('questionData.json', 'utf8');
+      const questionDataPath = path.join(__dirname, './public/data/questionData.json')
+      const questionfileData = fs.readFileSync(questionDataPath, 'utf8');
       existingData = JSON.parse(questionfileData);
   } catch (error) {
       console.error(error);
   }
-
   // 새 데이터를 배열에 추가
   existingData.push(newData);
   // JSON 파일에 데이터 쓰기
   fs.writeFileSync('questionData.json', JSON.stringify(existingData), 'utf8');
 
+
   // 다른 JSON 파일에서 데이터 읽기
-  let responseData = {};
+  let responseData = [];
   try {
-      const answerFileData = fs.readFileSync('answerData.json', 'utf8');
+      const answerDataPath = path.join(__dirname, './public/data/answerData.json')
+      const answerFileData = fs.readFileSync(answerDataPath, 'utf8');
       responseData = JSON.parse(answerFileData);
+      console.log(responseData)
   } catch (error) {
       console.error(error);
   }
 
   // 클라이언트에 응답
-  res.json({ message: `서버에서 받은 데이터: ${newData}`, answerData: responseData });
+  res.json({ message: `서버에서 받은 데이터: ${newData}, 서버에서 응답한 데이터: ${responseData}`});
 });
 
 

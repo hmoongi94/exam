@@ -29,7 +29,7 @@ export const load = () => {
           // 서버에서 반환한 JSON 데이터를 처리
           // 서버로부터의 응답을 처리하기 위해 await를 사용하여 응답을 대기합니다.
           const responseData = await response.json();
-          console.log(responseData.message);
+          console.log(responseData.message, responseData.answerData);
       } else {
           console.error('요청 실패');
       }
