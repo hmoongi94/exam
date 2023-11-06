@@ -1,6 +1,7 @@
 import { addToggleClassOnClick } from "./addToggleClassOnClick.js";
 import { createHTMLElement } from "./tagmaker.js";
 import { displayCurrentTime } from "./timestamp.js";
+import { newchat } from "./newchat.js";
 
 export const load = () => {
   document.addEventListener("DOMContentLoaded", function () {
@@ -13,6 +14,8 @@ export const load = () => {
     // 사이드바 메뉴 토글
     addToggleClassOnClick(sidebartoggle, sidebarmenu, "close")
 
+    // 뉴쳇 눌렀을 시 페이지 새로고침
+    newchat(document.getElementById("newChat"))
 
     // input form 데이터값 처리하기
     document.getElementById('questionData').addEventListener('submit', async (e) => {
