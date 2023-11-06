@@ -39,7 +39,7 @@ export const load = () => {
 
           for (let i = 0; i < 2; i++) {
             const liElement = createHTMLElement("li", null, null);
-            if(i=0){
+            if(i===0){
               const questionElement = createHTMLElement("p",null,responseData.inputData)
               liElement.appendChild(questionElement)
             } else{
