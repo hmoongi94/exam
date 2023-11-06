@@ -39,12 +39,13 @@ export const load = () => {
 
           for (let i = 0; i < 2; i++) {
             const liElement = createHTMLElement("li", null, null);
-          
-            const questionElement = createHTMLElement("p", null, responseData.inputData);
-            liElement.appendChild(questionElement);
-          
-            const answerElement = createHTMLElement("p", null, responseData.responseData);
-            liElement.appendChild(answerElement);
+            if(i=0){
+              const questionElement = createHTMLElement("p",null,responseData.inputData)
+              liElement.appendChild(questionElement)
+            } else{
+              const answerElement = createHTMLElement("p",null,responseData.responseData)
+              liElement.appendChild.appendChild(answerElement)
+            }
           
             ulElement.appendChild(liElement);
           }
