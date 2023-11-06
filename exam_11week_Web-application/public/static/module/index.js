@@ -1,5 +1,6 @@
 import { addToggleClassOnClick } from "./addToggleClassOnClick.js";
 import { createHTMLElement } from "./tagmaker.js";
+import { displayCurrentTime } from "./timestamp.js";
 
 export const load = () => {
   document.addEventListener("DOMContentLoaded", function () {
@@ -35,6 +36,7 @@ export const load = () => {
           const responseData = await response.json()
 
           // id: answerChat밑으로 답변할 내용이 들어갈 수 있는 태그를 생성합니다.
+          // timestamp: 시간을 넣어줄 timestamp함수도 만들어줍니다.
           const ulElement = createHTMLElement("ul",null,null)
 
           for (let i = 0; i < 2; i++) {
