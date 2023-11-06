@@ -11,6 +11,19 @@ app.use(express.static(path.join(__dirname, './public/static')));
 app.use(express.json())
 // app.use(bodyParser.json()); // app.use(express.json)과 같은 역할을 한다.
 
+//get 요청으로 메인페이지에 basicdata읽고 데이터값 쏴주기
+    // app.get()
+    // let basicData={}
+    // try{
+    //   const basicDataPath = path.join(__dirname, './public/data/basicData.json');
+    //   const basicFileData = fs.readFileSync(basicDataPath,'utf-8')
+    //   basicData = JSON.parse(basicFileData)
+    //   console.log(basicData)
+
+    // } catch(error){
+    //   console.error(error)
+    // }
+
 app.post('/submit', (req, res) => {
   const newData = req.body.data; // 클라이언트에서 보낸 데이터
 
@@ -54,28 +67,18 @@ app.post('/submit', (req, res) => {
     const styleDataPath = path.join(__dirname, './public/data/styleData.json');
     const styleFileData = fs.readFileSync(styleDataPath,'utf-8')
     styleData = JSON.parse(styleFileData)
-    console.log(styleData)
-
-  } catch(error){
-    console.error(error)
-  }
-
-  let basicData={}
-  try{
-    const basicDataPath = path.join(__dirname, './public/data/basicData.json');
-    const basicFileData = fs.readFileSync(basicDataPath,'utf-8')
-    basicData = JSON.parse(basicFileData)
-    console.log(basicData)
+    // console.log(styleData)
 
   } catch(error){
     console.error(error)
   }
 
   // 클라이언트에 응답
-  console.log(typeof(newData))
+//   console.log(typeof(newData))
   res.json({ inputData: `질문 내용: ${newData}`, 
             responseData: `답변 내용: ${responseMessage}`,
-            styleData, basicData});
+            styleData
+})
 });
 
 

@@ -34,17 +34,17 @@ export const load = () => {
           // 서버에서 반환한 JSON 데이터를 처리
           // 서버로부터의 응답을 처리하기 위해 await를 사용하여 응답을 대기합니다.
           const responseData = await response.json()
-
+          const responseStyleData = responseData.styleData
           // id: answerChat밑으로 답변할 내용이 들어갈 수 있는 태그를 생성합니다.
           // timestamp: 시간을 넣어줄 timestamp함수도 만들어줍니다.
           const ulElement = createHTMLElement("ul",null,null)
 
           for (let i = 0; i < 2; i++) {
             const liElement = createHTMLElement("li", null, null);
-            const timestamp = createHTMLElement("p",{"class":"floatright"},displayCurrentTime())
+            const timestamp = createHTMLElement("p",null,displayCurrentTime())
             if(i===0){
               for(let j=0; j<2; j++){
-              const questionElement = createHTMLElement("p",null,responseData.inputData)
+              const questionElement = createHTMLElement("p",{style:responseStyleData},responseData.inputData)
               if(j===0){
               liElement.appendChild(questionElement)
               } else{

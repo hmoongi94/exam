@@ -8,4 +8,4 @@ export function displayCurrentTime() {
 }
 
 // 예시로 현재 시간을 콘솔에 출력
-console.log(displayCurrentTime());
+// console.log(displayCurrentTime());
