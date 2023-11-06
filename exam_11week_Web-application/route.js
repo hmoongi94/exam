@@ -16,6 +16,11 @@ const path = require('path');
     //   console.error(error)
     // }
 
+    router.get('/',(req,res)=>{
+      const htmlFilePath = path.join(__dirname, './public/index.html')
+      res.sendFile(htmlFilePath)
+    })
+
     router.post('/submit', (req, res) => {
       const newData = req.body.data; // 클라이언트에서 보낸 데이터
     
