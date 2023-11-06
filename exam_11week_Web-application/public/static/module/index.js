@@ -37,15 +37,25 @@ export const load = () => {
           // id: answerChat밑으로 답변할 내용이 들어갈 수 있는 태그를 생성합니다.
           const ulElement = createHTMLElement("ul",null,null)
           const liElement = createHTMLElement("li",null,null)
-          const pElement = createHTMLElement("p",null,responseData.inputData)
+          const questionElement = createHTMLElement("p",null,responseData.inputData)
+          const answerElemnet = createHTMLElement("p",null,responseData.responseData)
 
+          // 질문내용 데이터를 담을 태그 만들기
+          function questionTagMaker(){
           answerchat.appendChild(ulElement)
           ulElement.appendChild(liElement)
-          liElement.appendChild(pElement)
+          liElement.appendChild(questionElement)
+          }
+          questionTagMaker()
 
-
-          console.log(responseData.inputData)
-          console.log(responseData.responseData)
+          // 답변내용 데이터를 담을 태그 만들기
+          function answerTagMaer(){
+          answerchat.appendChild(ulElement)
+          ulElement.appendChild(liElement)
+          liElement.appendChild(answerElemnet)
+          }
+          answerTagMaer()
+          
       } else {
           console.error('요청 실패')
       }

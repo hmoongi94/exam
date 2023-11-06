@@ -51,8 +51,8 @@ app.post('/submit', (req, res) => {
 
   // 클라이언트에 응답
   console.log(typeof(newData))
-  res.json({ inputData: `서버에서 받은 데이터: ${newData}`, 
-            responseData: `서버에서 응답하는 데이터: ${responseMessage}`});
+  res.json({ inputData: `질문 내용: ${newData}`, 
+            responseData: `답변 내용: ${responseMessage}`});
 });
 
 
