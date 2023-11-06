@@ -4,7 +4,7 @@ import { displayCurrentTime } from "./timestamp.js";
 
 export const load = () => {
   document.addEventListener("DOMContentLoaded", function () {
-
+    
     // DOM접근으로 아이디값 접근
     const sidebartoggle = document.getElementById("sidebarToggle")
     const sidebarmenu = document.getElementById("sidebarMenu")
@@ -41,12 +41,25 @@ export const load = () => {
 
           for (let i = 0; i < 2; i++) {
             const liElement = createHTMLElement("li", null, null);
+            const timestamp = createHTMLElement("p",null,displayCurrentTime())
             if(i===0){
+              for(let j=0; j<2; j++){
               const questionElement = createHTMLElement("p",null,responseData.inputData)
+              if(j===0){
               liElement.appendChild(questionElement)
+              } else{
+                liElement.appendChild(timestamp)
+              }
+              }
             } else{
+              for(let j=0; j<2; j++){
               const answerElement = createHTMLElement("p",null,responseData.responseData)
+              if(j===0){
               liElement.appendChild(answerElement)
+              } else{
+                liElement.appendChild(timestamp)
+              }
+              }
             }
           
             ulElement.appendChild(liElement);
