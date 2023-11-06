@@ -49,10 +49,33 @@ app.post('/submit', (req, res) => {
       console.error(error);
   }
 
+  let styleData={}
+  try{
+    const styleDataPath = path.join(__dirname, './public/data/styleData.json');
+    const styleFileData = fs.readFileSync(styleDataPath,'utf-8')
+    styleData = JSON.parse(styleFileData)
+    console.log(styleData)
+
+  } catch(error){
+    console.error(error)
+  }
+
+  let basicData={}
+  try{
+    const basicDataPath = path.join(__dirname, './public/data/basicData.json');
+    const basicFileData = fs.readFileSync(basicDataPath,'utf-8')
+    basicData = JSON.parse(basicFileData)
+    console.log(basicData)
+
+  } catch(error){
+    console.error(error)
+  }
+
   // 클라이언트에 응답
   console.log(typeof(newData))
   res.json({ inputData: `질문 내용: ${newData}`, 
-            responseData: `답변 내용: ${responseMessage}`});
+            responseData: `답변 내용: ${responseMessage}`,
+            styleData, basicData});
 });
 
 

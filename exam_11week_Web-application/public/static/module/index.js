@@ -41,7 +41,7 @@ export const load = () => {
 
           for (let i = 0; i < 2; i++) {
             const liElement = createHTMLElement("li", null, null);
-            const timestamp = createHTMLElement("p",null,displayCurrentTime())
+            const timestamp = createHTMLElement("p",{"class":"floatright"},displayCurrentTime())
             if(i===0){
               for(let j=0; j<2; j++){
               const questionElement = createHTMLElement("p",null,responseData.inputData)
