@@ -44,7 +44,7 @@ export const load = () => {
               liElement.appendChild(questionElement)
             } else{
               const answerElement = createHTMLElement("p",null,responseData.responseData)
-              liElement.appendChild.appendChild(answerElement)
+              liElement.appendChild(answerElement)
             }
           
             ulElement.appendChild(liElement);
