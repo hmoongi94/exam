@@ -78,4 +78,7 @@ const path = require('path');
     })
     });
 
-    module.exports = {handlePostRequest: router.post('/submit')}
+    module.exports = {
+      handlePostRequest: router.post('/submit'),
+      handleGetRequest: router.get('/')
+    }

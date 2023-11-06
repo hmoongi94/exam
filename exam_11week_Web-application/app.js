@@ -1,4 +1,4 @@
-import { handlePostRequest } from './route.js';
+import { handlePostRequest, handleGetRequest } from './route.js';
 const express = require('express');
 const app = express();
 const port = 5001;
@@ -13,7 +13,7 @@ app.use(express.json())
 // app.use(bodyParser.json()); // app.use(express.json)과 같은 역할을 한다.
 
 // 라우팅 모듈 등록
-app.use('/', routes)
+app.get('/',handleGetRequest)
 
 // 포스트 핸들러 사용
 app.post('/submit',handlePostRequest)
