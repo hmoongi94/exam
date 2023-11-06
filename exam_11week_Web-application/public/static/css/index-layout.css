@@ -67,12 +67,12 @@
 }
 
 #answerChat>ul>li:nth-child(odd){
-  background-color: aqua;
+  background-color: skyblue;
 }
 
 
 #answerChat>ul>li:nth-child(even){
-  background-color: aquamarine;
+  background-color: gray;
 }
 
 /* #answerChat>ul>li>p{

@@ -44,10 +44,10 @@ export const load = () => {
 
           for (let i = 0; i < 2; i++) {
             const liElement = createHTMLElement("li", null, null);
-            const timestamp = createHTMLElement("p",null,displayCurrentTime())
+            const timestamp = createHTMLElement("p",{"style":`color:${responseStyleData.colors.primary}; fonts: ${responseStyleData.fonts.main}`},displayCurrentTime())
             if(i===0){
               for(let j=0; j<2; j++){
-              const questionElement = createHTMLElement("p",{style:responseStyleData},responseData.inputData)
+              const questionElement = createHTMLElement("p",{"style":`color:${responseStyleData.colors.secondary}; fonts: ${responseStyleData.fonts.main}`},responseData.inputData)
               if(j===0){
               liElement.appendChild(questionElement)
               } else{
@@ -56,7 +56,7 @@ export const load = () => {
               }
             } else{
               for(let j=0; j<2; j++){
-              const answerElement = createHTMLElement("p",null,responseData.responseData)
+              const answerElement = createHTMLElement("p",{"style":`color:${responseStyleData.colors.secondary}; fonts: ${responseStyleData.fonts.main}`},responseData.responseData)
               if(j===0){
               liElement.appendChild(answerElement)
               } else{
