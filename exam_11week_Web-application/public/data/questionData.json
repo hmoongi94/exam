@@ -1,6 +1,11 @@
 {
   "header": {
-    "hamburgerMenu": ["Home", "Profile", "Settings", "Logout"],
+    "hamburgerMenu": [
+      "Home",
+      "Profile",
+      "Settings",
+      "Logout"
+    ],
     "logo": "🌐",
     "promptInputPlaceholder": "Enter your message here..."
   },
@@ -15,6 +20,26 @@
         "type": "assistant",
         "message": "OpenAI is a machine learning model...",
         "timestamp": "10:24 AM"
+      },
+      {
+        "type": "user",
+        "message": "ㅇㅇㅇㅇ",
+        "timestamp": "오후 12:58:58"
+      },
+      {
+        "type": "user",
+        "message": "ㅇㅇㅇㅇㅇㅇ",
+        "timestamp": "오후 1:03:52"
+      },
+      {
+        "type": "user",
+        "message": "ㅇㅇㅇㅇㅇ",
+        "timestamp": "오후 1:10:02"
+      },
+      {
+        "type": "user",
+        "message": "ㅇㅇㅇㅇㅇ",
+        "timestamp": "오후 1:10:03"
       }
     ],
     "userInfo": {

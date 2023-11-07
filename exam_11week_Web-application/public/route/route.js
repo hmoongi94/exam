@@ -26,16 +26,18 @@ const path = require('path');
       const newData = req.body.data; // 클라이언트에서 보낸 데이터
       const timestamp = new Date().toLocaleTimeString(); //시간보여주는 timestamp 생성
     
+      let questionData = {}
       // 기존 JSON 파일에서 데이터 읽기
       try {
         const questionDataPath = path.join(__dirname, '../data/questionData.json')
         // questionData.json을 읽고 변수 jsonData에 questionData.json 데이터를 객체로 파싱한 후에 넣어준다.
-          fs.readFileSync(questionDataPath, (err,data)=>{
+          fs.readFile(questionDataPath, 'utf-8', (err,data)=>{
             if(err){
               console.log("error reading questionData.json")
               res.status(500).send("Internal Server Error")
             } else{
-              let questionData = JSON.parse(data)
+              questionData = JSON.parse(data)
+              console.log(questionData)
               
               // 새 데이터를 questiondata에 넣기
               questionData.mainContent.inputRecords.push({
@@ -44,12 +46,12 @@ const path = require('path');
                 timestamp: timestamp
               })
               
-              console.log(questionData)
-              fs.writeFileSync(questionDataPath, JSON.stringify(questionData,null,2), (err)=>{
+              fs.writeFile(questionDataPath, JSON.stringify(questionData,null,2), (err)=>{
                 if(err){
                   console.error("error writing question.json",err);
                   res.status(500).send("Internal Server Error")
                 } else{
+                  console.log(questionData)
                   console.log("questiondata.json에 저장이 되었습니다.")
                 }
               })
@@ -93,9 +95,11 @@ const path = require('path');
       } catch(error){
         console.error("styleData를 읽지 못하였습니다.",error)
       }
-    
+      console.log(responseData)
+      console.log(responseMessage)
+      console.log(questionData)
+      console.log(styleData)
       // 클라이언트에 응답
-    //   console.log(typeof(newData))
       res.json({ inputData: `질문 내용: ${newData}`, 
                 responseData: `답변 내용: ${responseMessage}`,
                 styleData
