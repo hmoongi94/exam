@@ -1,4 +1,28 @@
 {
   "yes": "무슨말인지 알겠습니다.",
-  "no":"무슨말인지 모르겠습니다."
+  "no": "무슨말인지 모르겠습니다.",
+  "mainContent": {
+    "inputRecords": [
+      {
+        "type": "assistant",
+        "message": "OpenAI is a machine learning model...",
+        "timestamp": "10:24 AM"
+      },
+      {
+        "type": "assistant",
+        "message": "무슨말인지 알겠습니다.",
+        "timestamp": "오후 2:47:34"
+      },
+      {
+        "type": "assistant",
+        "message": "무슨말인지 알겠습니다.",
+        "timestamp": "오후 2:47:41"
+      },
+      {
+        "type": "assistant",
+        "message": "무슨말인지 알겠습니다.",
+        "timestamp": "오후 2:48:06"
+      }
+    ]
+  }
 }
