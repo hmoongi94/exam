@@ -16,17 +16,17 @@ const path = require('path');
     //   console.error(error)
     // }
 
-    router.get('/',(req,res)=>{
-      const htmlFilePath = path.join(__dirname, './public/index.html')
-      res.sendFile(htmlFilePath)
-    })
+    // router.get('/',(req,res)=>{
+    //   const htmlFilePath = path.join(__dirname, './public/index.html')
+    //   res.sendFile(htmlFilePath)
+    // })
 
     router.post('/submit', (req, res) => {
       const newData = req.body.data; // 클라이언트에서 보낸 데이터
     
       // 기존 JSON 파일에서 데이터 읽기
       let existingData = [];
-      const questionDataPath = path.join(__dirname, './public/data/questionData.json')
+      const questionDataPath = path.join(__dirname, '../data/questionData.json')
       try {
           const questionfileData = fs.readFileSync(questionDataPath, 'utf8');
           existingData = JSON.parse(questionfileData);
@@ -43,7 +43,7 @@ const path = require('path');
       let responseData = {};
       let responseMessage = ""
       try {
-          const answerDataPath = path.join(__dirname, './public/data/answerData.json')
+          const answerDataPath = path.join(__dirname, '../data/answerData.json')
           const answerFileData = fs.readFileSync(answerDataPath, 'utf8');
           responseData = JSON.parse(answerFileData);
           // 응답에 조건걸어줘보기
@@ -61,7 +61,7 @@ const path = require('path');
     
       let styleData={}
       try{
-        const styleDataPath = path.join(__dirname, './public/data/styleData.json');
+        const styleDataPath = path.join(__dirname, '../data/styleData.json');
         const styleFileData = fs.readFileSync(styleDataPath,'utf-8')
         styleData = JSON.parse(styleFileData)
         // console.log(styleData)
@@ -79,6 +79,6 @@ const path = require('path');
     });
 
     module.exports = {
-      handlePostRequest: router.post('/submit'),
-      handleGetRequest: router.get('/')
+      // handleGetRequest: router.get('/'),
+      handlePostRequest: router.post('/submit')
     }

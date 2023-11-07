@@ -1,8 +1,8 @@
-import { handlePostRequest, handleGetRequest } from './route.js';
 const express = require('express');
 const app = express();
 const port = 5001;
 const path = require('path');
+const {handlePostRequest } = require('./public/route/route.js');
 
 // 정적파일 제공을 위한 미들웨어 설정
 app.use(express.static(path.join(__dirname, './public/static')));
@@ -13,7 +13,7 @@ app.use(express.json())
 // app.use(bodyParser.json()); // app.use(express.json)과 같은 역할을 한다.
 
 // 라우팅 모듈 등록
-app.get('/',handleGetRequest)
+// app.get('/',handleGetRequest)
 
 // 포스트 핸들러 사용
 app.post('/submit',handlePostRequest)
