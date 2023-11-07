@@ -18,18 +18,19 @@ const path = require('path');
     // }
 
     // router.get('/',(req,res)=>{
-    //   const htmlFilePath = path.join(__dirname, './public/index.html')
-    //   res.sendFile(htmlFilePath)
-    // })
-
-    router.post('/submit', (req, res) => {
-      const newData = req.body.data; // 클라이언트에서 보낸 데이터
+      //   const htmlFilePath = path.join(__dirname, './public/index.html')
+      //   res.sendFile(htmlFilePath)
+      // })
+      
+      router.post('/submit', (req, res) => {
+        const newData = req.body.data; // 클라이언트에서 보낸 데이터
       const timestamp = new Date().toLocaleTimeString(); //시간보여주는 timestamp 생성
+      const questionDataPath = path.join(__dirname, '../data/questionData.json')
+      const answerDataPath = path.join(__dirname, '../data/answerData.json')
     
       let questionData = {}
       // 기존 JSON 파일에서 데이터 읽기
       try {
-        const questionDataPath = path.join(__dirname, '../data/questionData.json')
         // questionData.json을 읽고 변수 jsonData에 questionData.json 데이터를 객체로 파싱한 후에 넣어준다.
           fs.readFile(questionDataPath, 'utf-8', (err,data)=>{
             if(err){
@@ -37,7 +38,7 @@ const path = require('path');
               res.status(500).send("Internal Server Error")
             } else{
               questionData = JSON.parse(data)
-              console.log(questionData)
+              // console.log(questionData)
               
               // 새 데이터를 questiondata에 넣기
               questionData.mainContent.inputRecords.push({
@@ -51,8 +52,8 @@ const path = require('path');
                   console.error("error writing question.json",err);
                   res.status(500).send("Internal Server Error")
                 } else{
-                  console.log(questionData)
-                  console.log("questiondata.json에 저장이 되었습니다.")
+                  // console.log(questionData)
+                  console.log(`questiondata.json에 user question이 저장되었습니다.`)
                 }
               })
 
@@ -69,16 +70,56 @@ const path = require('path');
       let responseData = {};
       let responseMessage = ""
       try {
-          const answerDataPath = path.join(__dirname, '../data/answerData.json')
           const answerFileData = fs.readFileSync(answerDataPath, 'utf8');
           responseData = JSON.parse(answerFileData);
           // 응답에 조건걸어줘보기
          if(typeof(newData)==="1234"){
           responseMessage = responseData.yes
+          questionData.mainContent.inputRecords.push({
+            type:"assistant",
+            message: responseMessage,
+            timestamp: timestamp
+          })
+          fs.writeFile(questionDataPath,JSON.stringify(questionData,null,2), (err)=>{
+            if(err){
+              console.error("error writing question.json",err);
+              res.status(500).send("Internal Server Error")
+            } else{
+              console.log(`questiondata.json에 assistant response가 저장되었습니다.`)
+            }
+          })
+          
+
          } else if(newData === "123"){
           responseMessage = responseData.no
+          questionData.mainContent.inputRecords.push({
+            type:"assistant",
+            message: responseMessage,
+            timestamp: timestamp
+          })
+          fs.writeFile(questionDataPath,JSON.stringify(questionData,null,2), (err)=>{
+            if(err){
+              console.error("error writing question.json",err);
+              res.status(500).send("Internal Server Error")
+            } else{
+              console.log(`questiondata.json에 assistant response가 저장되었습니다.`)
+            }
+          })
          } else{
           responseMessage = responseData.yes
+          questionData.mainContent.inputRecords.push({
+            type:"assistant",
+            message: responseMessage,
+            timestamp: timestamp
+          })
+          fs.writeFile(questionDataPath,JSON.stringify(questionData,null,2), (err)=>{
+            if(err){
+              console.error("error writing question.json",err);
+              res.status(500).send("Internal Server Error")
+            } else{
+              console.log(`questiondata.json에 assistant response가 저장되었습니다.`)
+            }
+          })
          }
           
       } catch (error) {
@@ -95,10 +136,10 @@ const path = require('path');
       } catch(error){
         console.error("styleData를 읽지 못하였습니다.",error)
       }
-      console.log(responseData)
-      console.log(responseMessage)
-      console.log(questionData)
-      console.log(styleData)
+      // console.log(responseData)
+      // console.log(responseMessage)
+      // console.log(questionData)
+      // console.log(styleData)
       // 클라이언트에 응답
       res.json({ inputData: `질문 내용: ${newData}`, 
                 responseData: `답변 내용: ${responseMessage}`,
