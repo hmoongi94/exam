@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+const { userInfo } = require('os');
 const path = require('path');
 
 //get 요청으로 메인페이지에 basicdata읽고 데이터값 쏴주기
@@ -23,20 +24,43 @@ const path = require('path');
 
     router.post('/submit', (req, res) => {
       const newData = req.body.data; // 클라이언트에서 보낸 데이터
+      const timestamp = new Date().toLocaleTimeString(); //시간보여주는 timestamp 생성
     
       // 기존 JSON 파일에서 데이터 읽기
-      let existingData = [];
-      const questionDataPath = path.join(__dirname, '../data/questionData.json')
       try {
-          const questionfileData = fs.readFileSync(questionDataPath, 'utf8');
-          existingData = JSON.parse(questionfileData);
+        const questionDataPath = path.join(__dirname, '../data/questionData.json')
+        // questionData.json을 읽고 변수 jsonData에 questionData.json 데이터를 객체로 파싱한 후에 넣어준다.
+          fs.readFileSync(questionDataPath, (err,data)=>{
+            if(err){
+              console.log("error reading questionData.json")
+              res.status(500).send("Internal Server Error")
+            } else{
+              let questionData = JSON.parse(data)
+              
+              // 새 데이터를 questiondata에 넣기
+              questionData.mainContent.inputRecords.push({
+                type:"user",
+                message: newData,
+                timestamp: timestamp
+              })
+              
+              console.log(questionData)
+              fs.writeFileSync(questionDataPath, JSON.stringify(questionData,null,2), (err)=>{
+                if(err){
+                  console.error("error writing question.json",err);
+                  res.status(500).send("Internal Server Error")
+                } else{
+                  console.log("questiondata.json에 저장이 되었습니다.")
+                }
+              })
+
+              // newdata가 들어간 questiondata를 questiondata.json에 갱신해주기 
+            }
+          })
+          
       } catch (error) {
           console.error(error);
       }
-      // 새 데이터를 배열에 추가
-      existingData.push(newData);
-      // JSON 파일에 데이터 쓰기
-      fs.writeFileSync(questionDataPath, JSON.stringify(existingData), 'utf8');
     
     
       // 다른 JSON 파일에서 데이터 읽기
@@ -56,7 +80,7 @@ const path = require('path');
          }
           
       } catch (error) {
-          console.error(error);
+          console.error("answerData.json을 읽지 못하였습니다.",error);
       }
     
       let styleData={}
@@ -67,7 +91,7 @@ const path = require('path');
         // console.log(styleData)
     
       } catch(error){
-        console.error(error)
+        console.error("styleData를 읽지 못하였습니다.",error)
       }
     
       // 클라이언트에 응답
