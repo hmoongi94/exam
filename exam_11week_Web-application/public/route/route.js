@@ -73,7 +73,7 @@ const path = require('path');
           const answerFileData = fs.readFileSync(answerDataPath, 'utf8');
           responseData = JSON.parse(answerFileData);
           // 응답에 조건걸어줘보기
-         if(typeof(newData)==="1234"){
+         if(newData==="1234"){
           responseMessage = responseData.no
           responseData.mainContent.inputRecords.push({
             type:"assistant",

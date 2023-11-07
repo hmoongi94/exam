@@ -100,6 +100,16 @@
         "type": "user",
         "message": "1234",
         "timestamp": "오후 2:48:06"
+      },
+      {
+        "type": "user",
+        "message": "1234",
+        "timestamp": "오후 2:49:45"
+      },
+      {
+        "type": "user",
+        "message": "12344",
+        "timestamp": "오후 2:49:47"
       }
     ],
     "userInfo": {

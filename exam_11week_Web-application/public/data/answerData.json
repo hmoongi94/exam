@@ -22,6 +22,16 @@
         "type": "assistant",
         "message": "무슨말인지 알겠습니다.",
         "timestamp": "오후 2:48:06"
+      },
+      {
+        "type": "assistant",
+        "message": "무슨말인지 모르겠습니다.",
+        "timestamp": "오후 2:49:45"
+      },
+      {
+        "type": "assistant",
+        "message": "무슨말인지 알겠습니다.",
+        "timestamp": "오후 2:49:47"
       }
     ]
   }
