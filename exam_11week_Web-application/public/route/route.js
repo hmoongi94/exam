@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const readFileAndParseASync = require('./readFile.js')
-const {cookQuestionDataFunc, cookAnswerDataFunc} = require('./cookData.js')
+const {cookQuestionDataFunc, cookAnswerDataFunc, returnData} = require('./cookData.js')
 const writefileAsync = require('./writefile.js')
 
 //html파일 '/'메인페이지에 쏴주기
@@ -58,7 +58,9 @@ router.post('/submit', (req, res) => {
       })
     })
 
-    readFileAndParseASync('styleData.json',styleDataPath, styleData)
+    readFileAndParseASync('styleData.json',styleDataPath, styleData,function(){
+      returnData()
+    })
     
   } catch (error) {
     console.error(error.message);

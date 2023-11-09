@@ -9,7 +9,7 @@ function readFileAndParseASync (fileName, datapath, data, cookDataFunc){
     } else{
       try {
         data = JSON.parse(filedata);
-
+      
         // * parsingdata를 fs.writefile을 할 콜백함수
         cookDataFunc()
 

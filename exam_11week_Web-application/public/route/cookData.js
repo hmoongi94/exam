@@ -31,4 +31,8 @@ function cookAnswerDataFunc(parsedData, writefileFunc) {
   writefileFunc()
 }
 
-module.exports = {cookQuestionDataFunc, cookAnswerDataFunc}
+function returnData(data){
+  return data
+}
+
+module.exports = {cookQuestionDataFunc, cookAnswerDataFunc, returnData}
