@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 });
 
 // get 요청으로 메인페이지에 basicdata읽고 데이터값 쏴주기
-router.get("/basicddta", (req, res) => {
+router.get("/basicdata", (req, res) => {
   // basicdata.json 파일 읽기
   const basicDataFilePath = path.join(__dirname,'../data/basicData.json')
   fs.readFile(basicDataFilePath, (err, data) => {
@@ -17,6 +17,7 @@ router.get("/basicddta", (req, res) => {
       res.status(500).send("Internal Server Error");
     } else {
       res.json(JSON.parse(data));
+      //*
     }
   });
 });
