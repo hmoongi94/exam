@@ -5,6 +5,7 @@ const path = require('path');
 
 //html파일 '/'메인페이지에 쏴주기
 router.get("/", (req, res) => {
+  if(req==='/')
   res.sendFile(__dirname + "../public/index.html");
 });
 
