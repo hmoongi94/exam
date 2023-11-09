@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const readFileAndParseASync = require('./readFile.js')
+const writefileAsync = require('./writefile.js')
 
 //html파일 '/'메인페이지에 쏴주기
 router.get("/", (req, res) => {
@@ -74,9 +75,9 @@ router.post('/submit', (req, res) => {
   }
 
   res.json({
-    inputData: `질문 내용: ${newData}`,
-    responseData: `답변 내용: ${responseMessage}`,
-    styleData
+    inputData: `질문 내용: ${newData}`
+    // ,responseData: `답변 내용: ${responseMessage}`,
+    // styleData
   })
 });
 

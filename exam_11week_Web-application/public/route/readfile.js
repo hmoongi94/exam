@@ -8,6 +8,10 @@ function readFileAndParseASync (fileName,callback){
     } else{
       try {
         const parsedData = JSON.parse(filedata);
+        // ?parsedData를 가공한거를 writefile하고싶음.
+        // ?여기 구간에서 가공을 해줘야하는데 모듈화를 하는 방법을 생각해보자.
+
+
         // * parsingdata를 fs.writefile을 할 콜백함수
         callback();
       } catch (parseError) {
