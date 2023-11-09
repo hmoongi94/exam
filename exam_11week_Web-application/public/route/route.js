@@ -16,7 +16,7 @@ router.get("/basicdata", (req, res) => {
     if (err) {
       res.status(500).send("Internal Server Error");
     } else {
-      // res.send(JSON.parse(data));
+      res.send(JSON.parse(data));
       // res.end(JSON.parse(data));
       // res.json(JSON.parse(data));
       //* readfile을 했을 때는 문자열 또는 버퍼형식으로 데이터를 가지고있음? 그래서 data를 먼저 json.parse를 해줘야함. 

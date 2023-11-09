@@ -11,6 +11,7 @@ export const load = () => {
     const sidebartoggle = document.getElementById("sidebarToggle")
     const sidebarmenu = document.getElementById("sidebarMenu")
     const answerchat = document.getElementById("answerChat")
+    const userlogo = document.getElementById("userLogo")
 
     // 사이드바 메뉴 토글
     addToggleClassOnClick(sidebartoggle, sidebarmenu, "close")
@@ -24,6 +25,7 @@ export const load = () => {
       if (data) {
         console.log(data)
         console.log('basicdata 불러옴')
+        userlogo.textContent = data.header.logo
       } else {
         console.log("Failed to fetch data");
       }
