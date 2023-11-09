@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const readFileAndParseASync = require('./readFile.js')
-const cookDataFunc = require('./cookData.js')
+const {cookQuestionDataFunc, cookAnswerDataFunc} = require('./cookData.js')
 const writefileAsync = require('./writefile.js')
 
 //html파일 '/'메인페이지에 쏴주기
@@ -35,17 +35,31 @@ router.get("/basicdata", (req, res) => {
 router.post('/submit', (req, res) => {
   const newData = req.body.data; // 클라이언트에서 보낸 데이터
   const timestamp = new Date().toLocaleTimeString(); //시간보여주는 timestamp 생성
+  let questionData = {}
+  let questionDataPath = ""
+
+  let responseData = {};
+  let responseDataPath = ""
+  let responseMessage = ""
   
+  let styleData = {}
+  let styleDataPath = ""
+
   try {
-    let Data = {}
-    let datapath = ""
-    readFileAndParseASync('questionData.json', datapath, Data, function(){
-      cookDataFunc(Data,function(){
-        writefileAsync(datapath, Data)
+    readFileAndParseASync('questionData.json', questionDataPath, questionData, function(){
+      cookQuestionDataFunc(questionData,function(){
+        writefileAsync(questionDataPath, questionData)
       })
     })
-    
 
+    readFileAndParseASync('answerData.json', responseDataPath, responseData,function(){
+      cookAnswerDataFunc(responseData,function(){
+        writefileAsync(responseDataPath, responseData)
+      })
+    })
+
+    readFileAndParseASync('styleData.json',styleDataPath, styleData)
+    
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Internal Server Error")
@@ -53,8 +67,8 @@ router.post('/submit', (req, res) => {
 
   res.json({
     inputData: `질문 내용: ${newData}`
-    // ,responseData: `답변 내용: ${responseMessage}`,
-    // styleData
+    ,responseData: `답변 내용: ${responseMessage}`,
+    styleData
   })
 });
 
