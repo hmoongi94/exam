@@ -21,9 +21,11 @@ function readFileAndParseASync(fileName, datapath, data, cookDataFunc){
   
 }
 let datapath = '' 
-let data = ''
+let data = {}
 const result = function(data){
   return(data)
 }
 
-console.log(readFileAndParseASync('questionData.json', '', {}, result))
+console.log(readFileAndParseASync('questionData.json', datapath, data, function(){
+    result(data)
+}))
