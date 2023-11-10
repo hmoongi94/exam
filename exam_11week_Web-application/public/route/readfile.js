@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-function readFileAndParseASync (fileName, datapath, data, cookDataFunc){
+const readFileAndParseASync = function(fileName, datapath, data, cookDataFunc){
   datapath = path.join(__dirname, `../data/${fileName}`)
   fs.readFile(datapath,'utf8',(err,filedata)=>{
     if(err){

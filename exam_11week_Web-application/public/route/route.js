@@ -62,18 +62,19 @@ router.post('/submit', (req, res) => {
     readFileAndParseASync('styleData.json', styleDataPath, styleData, function () {
       returnData(styleData)
     })
-    
-    res.json({
-      inputData: `질문 내용: ${newData}`
-      , responseData: `답변 내용: ${responseMessage}`,
-      styleData
-    })
 
+    
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Internal Server Error")
   }
-
+  
+  res.json({
+    inputData: `질문 내용: ${newData}`
+    , responseData: `답변 내용: ${responseMessage}`,
+    styleData
+  })
+  
 });
 
 module.exports = {

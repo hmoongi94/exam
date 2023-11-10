@@ -1,4 +1,4 @@
-function cookQuestionDataFunc(parsedData, writefileFunc) {
+const cookQuestionDataFunc = function(parsedData, writefileFunc) {
   // *여기서 마음대로 조리
   parsedData.mainContent.inputRecords = {
     "type": "user",
@@ -11,7 +11,7 @@ function cookQuestionDataFunc(parsedData, writefileFunc) {
 
 }
 
-function cookAnswerDataFunc(parsedData, writefileFunc) {
+const cookAnswerDataFunc = function(parsedData, writefileFunc) {
   if (newData === "1234") {
     responseMessage = parsedData.no
     parsedData.mainContent.inputRecords.push({
@@ -31,7 +31,7 @@ function cookAnswerDataFunc(parsedData, writefileFunc) {
   writefileFunc()
 }
 
-function returnData(data){
+const returnData = function(data){
   return data
 }
 

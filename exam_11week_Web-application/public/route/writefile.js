@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-function writefileAsync(datapath, cookParsedData) {
+const writefileAsync = function (datapath, cookParsedData) {
   // ?parsedData를 가공한거를 writefile하고싶음.
   // ?여기 구간에서 가공을 해줘야하는데 모듈화를 하는 방법을 생각해보자.
   // * 여기서 데이터를 가공한거를 받아야함. 콜백함수 자리를 만들어서 여기서 가공을 한거를 writefile해보자.
