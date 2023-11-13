@@ -32,7 +32,9 @@ const cookAnswerDataFunc = function(parsedData, writefileFunc) {
 }
 
 const returnData = function(cookedData, responseData){
-  responseData = cookedData
+  // responseData = cookedData
+  Object.assign(responseData,cookedData)
+  return responseData
 }
 
 module.exports = {cookQuestionDataFunc, cookAnswerDataFunc, returnData}

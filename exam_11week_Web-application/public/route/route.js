@@ -59,7 +59,7 @@ router.post('/submit', (req, res) => {
       })
     })
 
-    readFileAndParseASync('styleData.json', styleDataPath, styleData, function (styleParsedData) {
+    readFileAndParseASync('styleData.json', function (styleParsedData) {
       returnData(styleParsedData, styleData)
     })
 
