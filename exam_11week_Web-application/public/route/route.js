@@ -35,7 +35,7 @@ router.get("/basicdata", (req, res) => {
 // form의 post요청 처리
 router.post('/submit', (req, res) => {
   const newData = req.body.data; // 클라이언트에서 보낸 데이터
-  const timestamp = new Date().toLocaleTimeString(); //시간보여주는 timestamp 생성
+  // const timestamp = new Date().toLocaleTimeString(); //시간보여주는 timestamp 생성
   let questionData = {}
   let questionDataPath = ""
 
