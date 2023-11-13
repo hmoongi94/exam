@@ -24,11 +24,11 @@ const readFileAndParseASync = function (fileName, cookDataFunc) {
 const cookQuestionDataFunc = function (parsedData, writefileFunc) {
   // *여기서 마음대로 조리
   const timestamp = new Date().toLocaleTimeString(); //시간보여주는 timestamp 
-  parsedData.mainContent.inputRecords = {
+  parsedData.mainContent.inputRecords.push({
     "type": "user",
     // "message": `${newData}`,
     "timestamp": `${timestamp}`
-  }
+  })
 
   // *writefile할 콜백함수
   writefileFunc(parsedData)
@@ -45,7 +45,7 @@ const writefileAsync = function (datapath, cookParsedData) {
     if (err) {
       throw new Error(`error writing ${cookParsedData}`)
     } else {
-      console.log(`${datapath}에 ${cookParsedData}가 저장되었습니다.`)
+      console.log(`${datapath}에 ${JSON.stringify(cookParsedData, null, 2)}가 저장되었습니다.`)
     }
   })
 }
