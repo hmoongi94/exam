@@ -1,18 +1,18 @@
 const cookQuestionDataFunc = function(parsedData, writefileFunc) {
   // *여기서 마음대로 조리
   const timestamp = new Date().toLocaleTimeString(); //시간보여주는 timestamp 
-  parsedData.mainContent.inputRecords = {
+  parsedData.mainContent.inputRecords.push({
     "type": "user",
     "message": `${newData}`,
     "timestamp": `${timestamp}`
-  }
+  })
 
   // *writefile할 콜백함수
-  writefileFunc()
+  writefileFunc(parsedData)
 
 }
 
-const cookAnswerDataFunc = function(parsedData, writefileFunc) {
+const cookAnswerDataFunc = function(parsedData, inputdata, responseMessage, writefileFunc) {
   const timestamp = new Date().toLocaleTimeString(); //시간보여주는 timestamp 
   if (newData === "1234") {
     responseMessage = parsedData.no

@@ -1,14 +1,14 @@
 const fs = require('fs')
 const path = require('path')
 
-const readFileAndParseASync = function(fileName, cookDataFunc){
-  const datapath = path.join(__dirname, `../data/${fileName}`)
+const readFileAndParseASync = function(fileName, data, datapath, cookDataFunc){
+  datapath = path.join(__dirname, `../data/${fileName}`)
   fs.readFile(datapath,'utf8',(err,filedata)=>{
     if(err){
       throw new Error(`${fileName}을 읽지 못하였습니다.`)
     } else{
       try {
-        let data = JSON.parse(filedata);
+         data = JSON.parse(filedata);
         
         // * parsingdata를 fs.writefile을 할 콜백함수
         cookDataFunc(data, datapath)
