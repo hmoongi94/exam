@@ -10,6 +10,7 @@ function readFileAndParseASync(fileName, datapath, data, cookDataFunc){
       try {
         data = JSON.parse(filedata);
         // console.log(data)
+        // console.log(datapath)
         // * parsingdata를 fs.writefile을 할 콜백함수
         cookDataFunc(data)
 
@@ -20,12 +21,15 @@ function readFileAndParseASync(fileName, datapath, data, cookDataFunc){
   })
   
 }
-let datapath = '' 
-let data = {}
-const result = function(data){
-  return(data)
-}
 
-console.log(readFileAndParseASync('questionData.json', datapath, data, function(){
-    result(data)
-}))
+let datapath = ''   
+let data = {}
+
+// 예시 콜백 함수
+function cookDataFunc(data) {
+  // 받아온 데이터를 이용한 작업 수행
+  console.log(data);
+}
+readFileAndParseASync('questionData.json', datapath, data, function(data){
+  cookDataFunc(data)
+})

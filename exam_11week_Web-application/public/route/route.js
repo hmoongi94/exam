@@ -47,20 +47,20 @@ router.post('/submit', (req, res) => {
   let styleDataPath = ""
 
   try {
-    readFileAndParseASync('questionData.json', questionDataPath, questionData, function () {
-      cookQuestionDataFunc(questionData, function () {
-        writefileAsync(questionDataPath, questionData)
+    readFileAndParseASync('questionData.json', questionDataPath, questionData, function (parsedData) {
+      cookQuestionDataFunc(parsedData, function (cookedData) {
+        writefileAsync(questionDataPath, cookedData)
       })
     })
 
-    readFileAndParseASync('answerData.json', responseDataPath, responseData, function () {
-      cookAnswerDataFunc(responseData, function () {
-        writefileAsync(responseDataPath, responseData)
+    readFileAndParseASync('answerData.json', responseDataPath, responseData, function (parsedData) {
+      cookAnswerDataFunc(parsedData, function (cookedData) {
+        writefileAsync(responseDataPath, cookedData)
       })
     })
 
-    readFileAndParseASync('styleData.json', styleDataPath, styleData, function () {
-      returnData(styleData)
+    readFileAndParseASync('styleData.json', styleDataPath, styleData, function (styleParsedData) {
+      returnData(styleParsedData, styleData)
     })
 
     

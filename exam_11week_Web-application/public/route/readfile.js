@@ -11,7 +11,7 @@ const readFileAndParseASync = function(fileName, datapath, data, cookDataFunc){
         data = JSON.parse(filedata);
       
         // * parsingdata를 fs.writefile을 할 콜백함수
-        cookDataFunc()
+        cookDataFunc(data)
 
       } catch (parseError) {
         throw new Error(`데이터 파싱 오류: ${parseError.message}`);

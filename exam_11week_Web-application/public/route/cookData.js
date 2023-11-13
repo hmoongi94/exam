@@ -28,11 +28,11 @@ const cookAnswerDataFunc = function(parsedData, writefileFunc) {
     })
   }
 
-  writefileFunc()
+  writefileFunc(responseMessage)
 }
 
-const returnData = function(data){
-  return data
+const returnData = function(cookedData, responseData){
+  responseData = cookedData
 }
 
 module.exports = {cookQuestionDataFunc, cookAnswerDataFunc, returnData}
