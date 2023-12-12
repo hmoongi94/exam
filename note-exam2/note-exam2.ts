@@ -10,7 +10,7 @@ function createElement(tagName: string, props?:Props, ...children:string[]): str
   let startTag = `<${tagName}`
   if (props){
     for(let prop in props){
-      startTag += `${prop}="${props[prop]}"`
+      startTag += ` ${prop}="${props[prop]}"`
       //* prop은 props매개변수에 대한 key값
       //* props[prop]은 prop에 대한 value값
     }
