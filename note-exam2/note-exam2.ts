@@ -29,7 +29,6 @@ function createElement(tagName: string, props?:Props, ...children:string[]): str
   return resultValue
 }
 
+let resultValue = createElement('h1', {id: 'example', class:'active', style: 'color: salmon'}, '홍문기')
 
-
-let styleString = styleValueMaker('color:red', 'font-size:16px', 'padding:10px')
-let divString = createElement('h1', {id: 'example', class:'active', style: 'color'}, '이것은 스타일이 적용된 div입니다.')
+console.log(resultValue)
