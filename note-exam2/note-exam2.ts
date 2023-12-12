@@ -1,3 +1,5 @@
+//? const resultValue : string = <h1 id = “example” class = ”active” style : “color:salmon;”> 내이름 </h1>
+
 //Props객체 정리하기
 type Props = {[key:string]: string}
 
