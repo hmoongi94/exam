@@ -11,6 +11,8 @@ function createElement(tagName: string, props?:Props, ...children:string[]): str
   if (props){
     for(let prop in props){
       startTag += `${prop}="${props[prop]}"`
+      //* prop은 props매개변수에 대한 key값
+      //* props[prop]은 prop에 대한 value값
     }
   }
   startTag += '>';
@@ -23,7 +25,7 @@ function createElement(tagName: string, props?:Props, ...children:string[]): str
   // 태그 종료 부분
   elementStrings.push(`</${tagName}>`)
 
-  const resultValue = elementStrings.join(' '); 
+  const resultValue = elementStrings.join(''); 
   return resultValue
 }
 
