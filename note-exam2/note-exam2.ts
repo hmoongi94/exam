@@ -23,7 +23,7 @@ function createElement(tagName: string, props?:Props, ...children:string[]): str
   // 태그 종료 부분
   elementStrings.push(`</${tagName}>`)
 
-  const resultValue = elementStrings.join(''); 
+  const resultValue = elementStrings.join(' '); 
   return resultValue
 }
 
