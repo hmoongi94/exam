@@ -26,11 +26,22 @@ class ForExam{
     this.assembleHTMLTags(config.htmlTagPromblems)
   }
 
-  generateProblemData(){
-
+  generateProblemData(problemNumber, baseArray, specialProblems){
+    if(specialProblems.includes(problemNumber)){
+      return [...baseArray, '이브이']
+    }
+    return baseArray.slice()
   }
 
-  assembleHTMLTags(){
+  assembleHTMLTags(htmlTagProblems){
+    for(let problem of htmlTagProblems){
+      this['problem'+problem]= this['problem'+problem].map(item =>{
+        if(item.includes('<')){
+          return item;
+        }
+        return `<li>${item}</li>`
+      })
+    }
 
   }
 }
