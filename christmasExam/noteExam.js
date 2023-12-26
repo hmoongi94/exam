@@ -23,7 +23,7 @@ class ForExam{
 
     this.problem16 = [['피카츄','라이츄'],['꼬부기','이브이']]
 
-    this.assembleHTMLTags(config.htmlTagPromblems)
+    this.assembleHTMLTags(config.htmlTagProblems)
   }
 
   generateProblemData(problemNumber, baseArray, specialProblems){
@@ -35,6 +35,9 @@ class ForExam{
 
   assembleHTMLTags(htmlTagProblems){
     for(let problem of htmlTagProblems){
+      // 해당 속성이 배열인지 확인하고 배열로 초기화
+      this['problem' + problem] = this['problem' + problem] || [];
+      
       this['problem'+problem]= this['problem'+problem].map(item =>{
         if(item.includes('<')){
           return item;
@@ -47,4 +50,4 @@ class ForExam{
 }
 
 let forExam = new ForExam()
-console.dir(forExam)
+console.log(forExam)
