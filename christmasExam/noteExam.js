@@ -36,8 +36,8 @@ class ForExam{
   assembleHTMLTags(htmlTagProblems){
     for(let problem of htmlTagProblems){
       // 해당 속성이 배열인지 확인하고 배열로 초기화
-      this['problem' + problem] = this['problem' + problem] || [];
-      
+      // this['problem' + problem] = this['problem' + problem] || [];
+
       this['problem'+problem]= this['problem'+problem].map(item =>{
         if(item.includes('<')){
           return item;
