@@ -1,0 +1,27 @@
+.root{
+  display: flex;
+}
+
+.menu{
+  display: flex;
+  width: 151px;
+  height: 771px;
+  flex-shrink: 0;
+  background-color: #d9d9d9;
+  
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 771px;
+  flex-shrink: 0;
+  background-color: pink;
+}
+
+.search{
+  display: flex;
+  flex-direction: column;
+}
+
