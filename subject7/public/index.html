@@ -9,21 +9,29 @@
     <div id="root"></div>
     <script>
       const root = document.getElementById("root");
+      root.style.display = "flex";
 
       // *menu란
       const menuDiv = document.createElement("div");
       menuDiv.id = "menu";
 
+      root.appendChild(menuDiv);
       // 가정된 데이터 배열
       const Data = {
-        김우진: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
-        김현: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
-        방승희: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
-        송영준: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
-        윤준현: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
-        이유안: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
-        홍문기: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
-        홍문기: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" }, 
+        김우진: {
+          김우진소개: "어쩌고저쩌고",
+          김우진장점: "어쩌고저쩌고불라불라",
+        },
+        김현: { 김현소개: "어쩌고저쩌고", 김현장점: "어쩌고저쩌고불라불라" },
+        방승희: {
+          방승희소개: "어쩌고저쩌고",
+          방승희장점: "어쩌고저쩌고불라불라",
+        },
+        // 송영준: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        // 윤준현: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        // 이유안: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        // 홍문기: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        // 홍문기: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
         // 객체의 key값은 고유해서 동일한 key는 추가가 되지않는다?
         // 동명이인의 경우 배열을 사용하여 각각의 정보를 포함하는 것이 일반적임.
       };
@@ -36,18 +44,54 @@
         const list = document.createElement("li");
         list.textContent = nameData;
         list.style.listStyle = "none";
+        
         menuUl.appendChild(list);
       });
 
       menuDiv.appendChild(menuUl);
 
-      root.appendChild(menuDiv);
+      // * Content란
+      const contentDiv = document.createElement("div");
+      contentDiv.id = "content";
 
-      // * Introduce란
-      const introduceDiv = document.createElement("div");
-      introduceDiv.id = "introduce";
+      root.appendChild(contentDiv);
 
-      root.appendChild(introduceDiv);
+      // // 소개란
+      // const introduceDiv = document.createElement("div");
+      // introduceDiv.id = "introduce";
+
+      // const introduceTitle = document.createElement('h1')
+      // introduceTitle.textContent = '소개'
+      // introduceDiv.appendChild(introduceTitle)
+
+      // const introduceSubtitle = document.createElement("p");
+      // introduceDiv.appendChild(introduceSubtitle);
+      // introduceSubtitle.textContent = '어쩌고저쩌고'
+
+      // contentDiv.appendChild(introduceDiv);
+
+      // // 장점란
+      // const advantageDiv = document.createElement("div");
+      // advantageDiv.id = "advantage";
+
+      // contentDiv.appendChild(advantageDiv);
+
+      // const advantageTitle = document.createElement('h1')
+      // advantageTitle.textContent = '장점'
+      // advantageDiv.appendChild(advantageTitle)
+      // const advantageSubtitle =document.createElement('p')
+      // advantageSubtitle.textContent = '어쩌고저쩌고불라불라'
+      // advantageDiv.appendChild(advantageSubtitle)
     </script>
   </body>
 </html>
+
+<!-- Object.values(Data).forEach((data)=>{
+      Object.keys(data).forEach((dataOfKey)=>{
+        if(dataOfKey === '소개'){
+          const introduce = document.createElement('h1')
+          introduce.textContent = dataOfKey
+          introduceDiv.appendChild(introduce)
+        }
+      })
+    }) -->
