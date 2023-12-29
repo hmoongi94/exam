@@ -39,8 +39,8 @@ const MenuComponent: React.FC = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="w-screen h-screen bg-mainColor flex">
+      <div className="w-151">
         <ul>
           {/* 고정된 메뉴항목만 보여주기 */}
           {Object.keys(studentdata).map((menu) => (
@@ -49,39 +49,46 @@ const MenuComponent: React.FC = () => {
             </li>
           ))}
         </ul>
-        <div>
-          <div>
-            {(selectedMenu || searchedData) && (
-              <>
-                <h2>{selectedMenu || searchTerm}의 소개</h2>
-                <p>
+      </div>
+
+      <div>
+        <div className="w-500 h-638">
+          {(selectedMenu || searchedData) && (
+            <>
+              <div>
+                <h1 className="w-500 h-81 text-3xl font-bold">{selectedMenu || searchTerm}의 소개</h1>
+                <p className="w-500 h-238">
                   {
                     (selectedMenu ? studentdata[selectedMenu] : searchedData)
                       ?.소개
                   }
                 </p>
-                <h2>{selectedMenu || searchTerm}의 장점</h2>
+              </div>
+
+              <div>
+                <h1 className="w-500 h-81 text-3xl font-bold">{selectedMenu || searchTerm}의 장점</h1>
                 <p>
                   {
                     (selectedMenu ? studentdata[selectedMenu] : searchedData)
                       ?.장점
                   }
                 </p>
-              </>
-            )}
-          </div>
-          <div>
-            {/* 검색어 입력란 */}
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="메뉴항목 검색"
-              className="border p-2 rounded-md text-black"
-            />
-            {/* 검색 버튼 */}
-            <button onClick={handleSearchSubmit}>검색</button>
-          </div>
+              </div>
+            </>
+          )}
+        </div>
+
+        <div className="flex flex-col w-500 h-121">
+          {/* 검색어 입력란 */}
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="메뉴항목 검색"
+            className="border p-2 rounded-md text-black"
+          />
+          {/* 검색 버튼 */}
+          <button onClick={handleSearchSubmit}>검색</button>
         </div>
       </div>
     </div>
