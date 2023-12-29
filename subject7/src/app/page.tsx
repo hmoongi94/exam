@@ -1,4 +1,4 @@
-import Menu from './ui/menu.tsx'
+import Menu from './ui/menugpt.tsx'
 export default function Page() {
   return (
     <Menu />
