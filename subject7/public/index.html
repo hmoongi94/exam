@@ -15,36 +15,25 @@
       menuDiv.id = "menu";
 
       // 가정된 데이터 배열
-      const menuItems = [
-        "김우진",
-        "김현",
-        "방승희",
-        "변호녕",
-        "소사무엘",
-        "송영준",
-        "신동현",
-        "오승민",
-        "유승민",
-        "윤준현",
-        "이민구",
-        "이유안",
-        "이채이",
-        "정영식",
-        "최성민",
-        "최은철",
-        "홍문기",
-        "추가된데이터",
-        
-      ];
+      const Data = {
+        김우진: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        김현: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        방승희: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        송영준: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        윤준현: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        이유안: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        홍문기: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" },
+        홍문기: { 소개: "어쩌고저쩌고", 장점: "어쩌고저쩌고불라불라" }, // 객체의 key값은 고유해서 동일한 key는 추가가 되지않는다?
+      };
 
       // ul 엘리먼트 생성
       const menuUl = document.createElement("ul");
 
       // ul 엘리먼트 안에 li자식요소들 동적으로 추가하기.
-      menuItems.forEach((nameData) => {
+      Object.keys(Data).forEach((nameData) => {
         const list = document.createElement("li");
         list.textContent = nameData;
-        list.style.listStyle = "none"
+        list.style.listStyle = "none";
         menuUl.appendChild(list);
       });
 
