@@ -39,7 +39,7 @@ const MenuComponent: React.FC = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-mainColor flex">
+    <div className="w-screen h-screen bg-mainColor flex justify-center ">
       <div className="w-151">
         <ul>
           {/* 고정된 메뉴항목만 보여주기 */}
