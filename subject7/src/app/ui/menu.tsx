@@ -1,6 +1,6 @@
 "use client";
 
-import studentData from "./studentData.json";
+import studentData from "../menu/studentData.json";
 import React, { useState } from "react";
 
 type Studentdata = {
